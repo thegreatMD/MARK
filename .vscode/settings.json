@@ -1,0 +1,16 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^python -m py_compile \"c:\\\\Users\\\\MAYUR DAVE\\\\OneDrive\\\\Desktop\\\\M\\\\Secret\\\\JARVIS\\\\Mark\\.py\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^python -c \"import traceback; from Mark import load_config, MarkAssistant; cfg=load_config\\(\\); assistant=MarkAssistant\\(cfg\\); assistant\\.handle_lead_generation\\('Urgent React Developer job posting'\\); print\\('Lead generation run completed'\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^python -m py_compile Mark\\.py$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

@@ -1,0 +1,277 @@
+:root {
+  --cyan: #3cf6ff;
+  --cyan-dim: rgba(60, 246, 255, 0.28);
+  --gold: #ffcc66;
+  --bg: #02060d;
+  --text: #d7f7ff;
+  --muted: #6ea7bb;
+  --danger: #ff5b5b;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+  color: var(--text);
+  font-family: "Segoe UI", "Rajdhani", sans-serif;
+  user-select: none;
+}
+
+.hud {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px 12px;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(0, 180, 220, 0.18), transparent 42%),
+    linear-gradient(180deg, rgba(2, 8, 16, 0.92), rgba(1, 6, 14, 0.96));
+  border: 1px solid var(--cyan-dim);
+  box-shadow: 0 0 40px rgba(0, 220, 255, 0.18), inset 0 0 40px rgba(0, 40, 60, 0.35);
+}
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  height: 36px;
+  margin: -2px 0 8px;
+  z-index: 40;
+  position: relative;
+}
+
+.drag-bar {
+  flex: 1;
+  height: 36px;
+  line-height: 36px;
+  letter-spacing: 0.22em;
+  font-size: 10px;
+  color: var(--muted);
+  text-align: left;
+  padding-left: 6px;
+  cursor: move;
+}
+
+.win-controls {
+  display: flex;
+  gap: 6px;
+  z-index: 50;
+  pointer-events: auto;
+  -webkit-app-region: no-drag;
+}
+
+.win-btn {
+  width: 34px;
+  height: 28px;
+  border: 1px solid var(--cyan-dim);
+  background: rgba(0, 30, 40, 0.95);
+  color: var(--cyan);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  -webkit-app-region: no-drag;
+}
+.win-btn.close {
+  width: 42px;
+  color: #fff;
+  background: #c62828;
+  border-color: #ff6b6b;
+}
+
+.close-window {
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid #ff6b6b;
+  background: rgba(160, 20, 20, 0.85);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 10px 8px;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+}
+
+.orbit {
+  position: relative;
+  width: min(420px, 100%);
+  height: min(420px, 58vh);
+  margin: 0 auto 8px;
+}
+
+.ring {
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  border: 1px solid var(--cyan-dim);
+  pointer-events: none;
+}
+.ring-a { inset: 4%; animation: spin 28s linear infinite; border-style: dashed; }
+.ring-b { inset: 14%; animation: spin 18s linear infinite reverse; box-shadow: 0 0 18px rgba(60, 246, 255, 0.12); }
+.ring-c { inset: 24%; border-width: 2px; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 138px;
+  height: 138px;
+  margin: -69px 0 0 -69px;
+  border-radius: 50%;
+  border: 2px solid var(--cyan);
+  background:
+    radial-gradient(circle at 50% 40%, rgba(180, 255, 255, 0.35), rgba(0, 40, 70, 0.15) 42%, rgba(0, 10, 20, 0.9) 70%);
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(60, 246, 255, 0.45), inset 0 0 24px rgba(60, 246, 255, 0.2);
+}
+.core strong {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  margin-top: 44px;
+}
+.core em {
+  display: block;
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--cyan);
+}
+.core-pulse {
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(60, 246, 255, 0.35);
+  animation: pulse 2.2s ease-out infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(0.7); opacity: 0.8; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+
+.nodes { position: absolute; inset: 0; }
+.node {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: -32px 0 0 -32px;
+  border-radius: 50%;
+  border: 1px solid var(--cyan);
+  background: rgba(2, 16, 28, 0.92);
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  box-shadow: 0 0 12px rgba(60, 246, 255, 0.25);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.node:hover, .node:focus {
+  transform: scale(1.08);
+  background: rgba(0, 60, 80, 0.95);
+  outline: none;
+}
+.node.danger { border-color: var(--danger); color: #ffd0d0; }
+.node .glyph { font-size: 15px; color: var(--cyan); }
+.node .label { font-size: 8px; letter-spacing: 0.12em; }
+
+.hud.collapsed .nodes,
+.hud.collapsed .comms,
+.hud.collapsed .ring-a,
+.hud.collapsed .ring-c { display: none; }
+.hud.collapsed .orbit { height: 180px; }
+.hud.collapsed .core { width: 120px; height: 120px; margin: -60px 0 0 -60px; }
+
+.comms {
+  padding: 8px 10px 4px;
+  border-top: 1px solid var(--cyan-dim);
+}
+.voice-line {
+  min-height: 44px;
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 10px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.meta span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+#comms-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+#comms-input {
+  border: 1px solid var(--cyan-dim);
+  background: rgba(0, 20, 32, 0.8);
+  color: var(--text);
+  padding: 9px 10px;
+  outline: none;
+}
+#engage-btn {
+  border: 0;
+  background: var(--cyan);
+  color: #021018;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  padding: 0 12px;
+}
+
+.quick-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+.quick-row button {
+  flex: 1;
+  border: 1px solid var(--cyan-dim);
+  background: transparent;
+  color: var(--cyan);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  padding: 6px 0;
+  cursor: pointer;
+}
+
+.perm-panel {
+  margin-top: 8px;
+  max-height: 140px;
+  overflow: auto;
+  border: 1px solid var(--cyan-dim);
+  padding: 6px;
+}
+.perm-panel.hidden { display: none; }
+.perm-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  font-size: 11px;
+  padding: 4px 0;
+}
+.perm-row button {
+  border: 1px solid var(--cyan-dim);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 10px;
+  padding: 2px 6px;
+}
+
+.node.busy { opacity: 0.55; pointer-events: none; }

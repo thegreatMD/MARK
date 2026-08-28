@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>J.A.R.V.I.S.</title>
+    <link rel="stylesheet" href="/static/hud.css" />
+</head>
+<body>
+    <div id="hud" class="hud expanded">
+        <header class="titlebar">
+            <div class="drag-bar pywebview-drag-region">J.A.R.V.I.S. // WINDOW</div>
+            <div class="win-controls">
+                <button type="button" class="win-btn" id="min-btn" title="Minimize">—</button>
+                <button type="button" class="win-btn" id="collapse-btn" title="Fold">Fold</button>
+                <button type="button" class="win-btn close" id="close-btn" title="Close window">✕</button>
+            </div>
+        </header>
+
+        <div class="orbit">
+            <div class="ring ring-a"></div>
+            <div class="ring ring-b"></div>
+            <div class="ring ring-c"></div>
+            <div id="nodes" class="nodes"></div>
+            <button type="button" id="core" class="core" title="Expand or collapse">
+                <span class="core-pulse"></span>
+                <strong>J.A.R.V.I.S.</strong>
+                <em id="core-status">ONLINE</em>
+            </button>
+        </div>
+
+        <section class="comms" id="comms">
+            <div class="voice-line" id="voice-line">Systems online. Click a node or speak.</div>
+            <div class="meta">
+                <span id="heard">Heard: —</span>
+                <span id="intent">Intent: —</span>
+                <span id="leads">Leads: 0</span>
+            </div>
+            <form id="comms-form">
+                <input id="comms-input" maxlength="4000" autocomplete="off" placeholder="Communicate… leads, research, email, a URL…" />
+                <button type="submit" id="engage-btn">ENGAGE</button>
+            </form>
+            <div class="quick-row">
+                <button type="button" data-lang="en">EN</button>
+                <button type="button" data-lang="hi">HI</button>
+                <button type="button" data-lang="gu">GU</button>
+                <button type="button" id="perm-toggle">ACCESS</button>
+            </div>
+            <div id="perm-panel" class="perm-panel hidden"></div>
+            <button type="button" id="close-window-btn" class="close-window">विंडो बंद करें · CLOSE WINDOW</button>
+        </section>
+    </div>
+    <script src="/static/hud.js"></script>
+</body>
+</html>

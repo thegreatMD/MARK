@@ -1,0 +1,11 @@
+#mark-web-companion { all: initial; }
+#mark-web-companion, #mark-web-companion * { box-sizing: border-box; font-family: Inter, Arial, sans-serif; }
+.mark-launcher { position: fixed; right: 22px; bottom: 22px; z-index: 2147483647; width: 52px; height: 52px; border: 0; border-radius: 50%; background: linear-gradient(135deg,#14d9ff,#3164ff); color:#fff; font-size:24px; font-weight:800; box-shadow:0 8px 28px #00206c88; cursor:pointer; }
+.mark-panel { position: fixed; right: 22px; bottom: 86px; z-index: 2147483647; width: min(390px,calc(100vw - 32px)); overflow:hidden; border:1px solid #3157a7; border-radius:18px; background:#081426; color:#edf5ff; box-shadow:0 18px 58px #000b; }
+.mark-panel[hidden] { display:none; }
+.mark-panel header { display:flex; align-items:center; gap:9px; padding:15px 16px; background:linear-gradient(120deg,#102c58,#0b1731); }
+.mark-panel header strong { font-size:20px; color:#45dfff; }.mark-panel header span { font-size:12px; color:#a9bedc; flex:1; }.mark-close { border:0; background:transparent; color:#d7e8ff; font-size:26px; line-height:1; cursor:pointer; }
+.mark-panel main { padding:16px; }.mark-status { margin:0 0 12px; color:#b8c9e2; font-size:13px; }.mark-context { display:block; margin-bottom:12px; color:#d1ddec; font-size:12px; }.mark-context input { accent-color:#29d5ff; }
+.mark-panel textarea { display:block; width:100%; min-height:92px; resize:vertical; border:1px solid #31517e; border-radius:10px; padding:11px; background:#0b1d35; color:#f4f8ff; font-size:14px; outline:none; }.mark-panel textarea:focus { border-color:#42dbff; }
+.mark-send { width:100%; margin-top:10px; padding:11px; border:0; border-radius:10px; background:#16c9ef; color:#031324; font-weight:800; cursor:pointer; }.mark-send:disabled { opacity:.6; cursor:wait; }.mark-reply { white-space:pre-wrap; max-height:240px; overflow:auto; margin-top:13px; padding:11px; border-radius:10px; background:#0c1b30; color:#e6f1ff; font-size:13px; line-height:1.45; }
+.mark-panel footer { padding:10px 16px; border-top:1px solid #233b63; color:#8ba1c0; font-size:11px; }

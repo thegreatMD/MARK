@@ -1,0 +1,38 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "cmd.exe",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "C:\\Users"
+      ]
+    },
+    "puppeteer": {
+      "command": "cmd.exe",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-puppeteer"
+      ]
+    },
+    "fetch": {
+      "command": "cmd.exe",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-fetch"
+      ]
+    },
+    "mark-actions": {
+      "command": "python",
+      "args": [
+        "C:\\Users\\Mayur\\mark_engine\\mark_server.py"
+      ]
+    }
+  }
+}

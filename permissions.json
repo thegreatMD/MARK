@@ -1,0 +1,8 @@
+{
+  "microphone": "granted",
+  "clipboard_access": "denied",
+  "screen_capture": "denied",
+  "desktop_control": "denied",
+  "camera": "denied",
+  "browser_automation": "granted"
+}
